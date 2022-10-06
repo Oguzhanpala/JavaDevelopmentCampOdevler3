@@ -9,6 +9,8 @@ public class TeacherCreditManager extends BaseCreditManager implements ICreditMa
 	}
 
 	public void save() {
-		System.out.println("Kaydedildi");
+		//
+		super.save();
+		//
 	}
 }
