@@ -24,10 +24,9 @@ public class CourseManager {
 		if (course.getPrice() < 0) {
 			throw new Exception("Kurs fiyatı sıfırdan küçük olamaz");
 		}
-		for (Course course1 : courses) {
-			if (course1.getName().equals(course.getName())) {
+		for (Course cours : courses) {
+			if (cours.getName().equals(course.getName())) {
 				throw new Exception("Kurs zaten kayıtlıdır.");
-
 			}
 
 		}

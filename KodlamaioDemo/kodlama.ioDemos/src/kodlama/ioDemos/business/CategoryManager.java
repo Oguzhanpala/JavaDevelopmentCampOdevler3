@@ -18,18 +18,20 @@ public class CategoryManager {
 		this.categories = categories;
 	}
 
+	public CategoryManager() {
+	}
+
 	public void add(Category category) throws Exception {
-		for (Category category1 : categories) {
-			if (category1.getName().equals(category.getName())) {
-				throw new Exception("Kategori zaten kayıtlıdır farklı bir kurs giriniz.");
-			}
-			baseDao.addCategory(category);
-			for (Logger logger : loggers) {
-				logger.log(category.getName());
+		for (Category cat : categories) {
+			if (category.getName() == cat.getName()) {
+				throw new Exception("category name exists");
 			}
 
 		}
+		baseDao.addCategory(category);
+		for (Logger logger : loggers) {
+			logger.log(category.getName());
 
+		}
 	}
-
 }

@@ -8,21 +8,21 @@ public class JdbcProductDao implements BaseDao {
 
 	@Override
 	public void addCourse(Course course) {
-		System.out.println("Kurs Jdbc ile veritabanına eklenmiştir.");
-		
+		System.out.println(course.getName() + " " + "Kursu Jdbc ile veritabanına eklenmiştir.");
+
 	}
 
 	@Override
 	public void addCategory(Category category) {
-		System.out.println("Kategori Jdbc ile veritabanına eklenmiştir.");
-		
+		System.out.println(category.getName() + " " + "Kategorisi Jdbc ile veritabanına eklenmiştir.");
+
 	}
 
 	@Override
-	public void addInstructor(Instructor ınInstructor) {
-		System.out.println("Eğitmen Jdbc ile veritabanına eklenmiştir.");
-		
+	public void addInstructor(Instructor instructor) {
+		System.out.println(instructor.getFirstName() + " " + instructor.getLastName() + " "
+				+ "Eğitmeni Jdbc ile veritabanına eklenmiştir.");
+
 	}
-	
 
 }

@@ -13,8 +13,11 @@ public class InstructorManager {
 		this.baseDao = baseDao;
 		this.loggers = loggers;
 	}
+	Instructor[] instructors = new Instructor[] {};
 
 	public void add(Instructor instructor) {
+		
+		
 		baseDao.addInstructor(instructor);
 		for (Logger logger : loggers) {
 			logger.log(instructor.getFirstName()+" "+instructor.getLastName());

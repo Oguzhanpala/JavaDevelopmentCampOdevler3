@@ -22,32 +22,30 @@ public class Main {
 		course1.setPrice(1000);
 		/*-- iki şekildede göstermek istedim ama yukarıdaki tercih edilir. --*/
 		Course course2= new Course(2,"Yazılım geliştirici kampı",50);
-		//Burada kursları diziye atadım.
-		Course[] courses = new Course[] {course2};
-		/*------------------------------------------------------------*/
+		
+		Course[] courses = new Course[] {course1,course2}; //Burada kursları diziye atadım.
+		/*----------------------------------------------------------------------*/
 		Category category1 = new Category();
 		category1.setId(1);
 		category1.setName("Programlama");
 		/*-- iki şekildede göstermek istedim ama yukarıdaki tercih edilir. --*/
-		Category category2 = new Category(2,"Tümü");
-		//Burada kategorileri diziye atadım.
-		Category[] categories= new Category[] {category1,category2};
-		/*------------------------------------------------------------*/
+		Category category2 = new Category(2,"Sql");
+
+		Category[] categories= new Category[] {category1,category2}; //Burada kategorileri diziye atadım.
+		/*----------------------------------------------------------------------*/
 		Instructor instructor = new Instructor();
-		instructor.setFirstName("Oğuzhan");
-		instructor.setLastName("Pala");
 		/*------------------------------------------------------------*/
 		Logger[] loggers = new Logger[] {new DatabaseLogger(),new FileLogger()};
 		
 		
 		CourseManager courseManager = new CourseManager(new HibernateProductDao(),loggers,courses);
-		courseManager.add(course1);
+		courseManager.add(new Course(3,"Java+React geliştirme",200));
 		
 		CategoryManager categoryManager = new CategoryManager(new JdbcProductDao(), loggers,categories);
-		categoryManager.add(category1);
+		categoryManager.add(new Category(2,"Yazılım "));
 		
 		InstructorManager instructorManager = new InstructorManager(new JdbcProductDao(),loggers);
-		instructorManager.add(instructor);
+		instructorManager.add(new Instructor("Oguzhan","Pala"));
 
 	}
 
