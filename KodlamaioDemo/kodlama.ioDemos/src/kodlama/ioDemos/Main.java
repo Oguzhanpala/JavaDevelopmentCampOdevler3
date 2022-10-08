@@ -22,13 +22,16 @@ public class Main {
 		course1.setPrice(1000);
 		/*-- iki şekildede göstermek istedim ama yukarıdaki tercih edilir. --*/
 		Course course2= new Course(2,"Yazılım geliştirici kampı",50);
+		//Burada kursları diziye atadım.
 		Course[] courses = new Course[] {course2};
 		/*------------------------------------------------------------*/
-		Category category = new Category();
-		category.setId(1);
-		category.setName("Programlama");
+		Category category1 = new Category();
+		category1.setId(1);
+		category1.setName("Programlama");
+		/*-- iki şekildede göstermek istedim ama yukarıdaki tercih edilir. --*/
 		Category category2 = new Category(2,"Tümü");
-		Category[] categories= new Category[] {category2};
+		//Burada kategorileri diziye atadım.
+		Category[] categories= new Category[] {category1,category2};
 		/*------------------------------------------------------------*/
 		Instructor instructor = new Instructor();
 		instructor.setFirstName("Oğuzhan");
@@ -41,7 +44,7 @@ public class Main {
 		courseManager.add(course1);
 		
 		CategoryManager categoryManager = new CategoryManager(new JdbcProductDao(), loggers,categories);
-		categoryManager.add(category);
+		categoryManager.add(category1);
 		
 		InstructorManager instructorManager = new InstructorManager(new JdbcProductDao(),loggers);
 		instructorManager.add(instructor);
