@@ -1,10 +1,7 @@
 package kodlama.ioDemos.business;
 
-import java.util.Iterator;
-
 import kodlama.ioDemos.core.logging.Logger;
 import kodlama.ioDemos.dataAccess.BaseDao;
-import kodlama.ioDemos.entities.Category;
 import kodlama.ioDemos.entities.Course;
 
 public class CourseManager {
@@ -21,14 +18,16 @@ public class CourseManager {
 	}
 
 	public void add(Course course) throws Exception {
-		if (course.getPrice() < 0) {
-			throw new Exception("Kurs fiyatı sıfırdan küçük olamaz");
-		}
+
 		for (Course cours : courses) {
 			if (cours.getName().equals(course.getName())) {
 				throw new Exception("Kurs zaten kayıtlıdır.");
 			}
 
+		}
+
+		if (course.getPrice() < 0) {
+			throw new Exception("Kurs fiyatı sıfırdan küçük olamaz");
 		}
 
 		baseDao.addCourse(course);
